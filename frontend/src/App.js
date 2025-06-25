@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
+// Use environment variable for backend API URL, fallback to localhost for dev
+const API_URL = process.env.REACT_APP_API_URL || 'https://pneuscan-1.onrender.com';
+
 function App() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(null);
@@ -19,12 +22,12 @@ function App() {
 
   const fetchHistory = async () => {
     try {
-      const res = await axios.get('http://127.0.0.1:5000/api/history');
+      const res = await axios.get(`${API_URL}/api/history`);
       // Attach image URL for each history item
       setHistory(
         res.data.map(item => ({
           ...item,
-          image: `http://127.0.0.1:5000/uploads/${item.filename}`
+          image: `${API_URL}/uploads/${item.filename}`
         }))
       );
     } catch (err) {
@@ -52,7 +55,7 @@ function App() {
     const formData = new FormData();
     formData.append('file', selectedFile);
     try {
-      const res = await axios.post('http://127.0.0.1:5000/api/predict', formData, {
+      const res = await axios.post(`${API_URL}/api/predict`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setPrediction(res.data);
@@ -67,7 +70,7 @@ function App() {
   const handleClearHistory = async () => {
     setClearing(true);
     try {
-      await axios.post('http://127.0.0.1:5000/api/clear_history');
+      await axios.post(`${API_URL}/api/clear_history`);
       fetchHistory();
     } catch (err) {
       // Optionally show an error
