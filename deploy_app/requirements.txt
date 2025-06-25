@@ -1,6 +1,8 @@
 flask
 werkzeug
-tensorflow
+tensorflow==2.18.0
+keras==3.9.0
 opencv-python
 numpy
 flask-cors
+gunicorn
