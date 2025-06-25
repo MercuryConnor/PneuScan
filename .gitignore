@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+
+# Flask uploads and history
+/deploy_app/uploads/
+/deploy_app/history.json
+
+# Model file (optional, if too large for GitHub)
+/deploy_app/best_pneumonia_model.h5
+
+# Node/React
+/frontend/node_modules/
+/frontend/build/
+
+# Jupyter Notebook checkpoints
+*.ipynb_checkpoints/
+
+# Data (do not upload raw datasets)
+/chest_xray/
+/extra/

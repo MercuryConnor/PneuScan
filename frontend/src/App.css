@@ -1,0 +1,95 @@
+body {
+  background: #f8fafc;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 32px 24px 24px 24px;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.upload-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  justify-content: center;
+}
+.upload-form input[type="file"] {
+  flex: 1;
+}
+.upload-form button {
+  padding: 8px 18px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.upload-form button:disabled {
+  background: #b0c4de;
+  cursor: not-allowed;
+}
+.preview-section, .result-section, .history-section {
+  margin-top: 24px;
+  text-align: center;
+}
+.preview-img {
+  max-width: 220px;
+  max-height: 220px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+}
+.result-label {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+.pneumonia {
+  color: #d9534f;
+}
+.normal {
+  color: #5cb85c;
+}
+.confidence {
+  color: #888;
+  font-size: 1rem;
+}
+.error {
+  color: #d9534f;
+  margin-top: 12px;
+  text-align: center;
+}
+.history-section {
+  margin-top: 36px;
+}
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  background: #f3f6fa;
+  border-radius: 8px;
+  padding: 10px 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.history-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
