@@ -1,6 +1,6 @@
 flask
 werkzeug
-tensorflow
+tensorflow==2.15.0
 opencv-python
 numpy
 flask-cors
