@@ -1,7 +1,7 @@
 # Python
 __pycache__/
 *.pyc
-
+/Pneumonia_Detection_using_CNN copy.ipynb
 # Flask uploads and history
 /deploy_app/uploads/
 /deploy_app/history.json

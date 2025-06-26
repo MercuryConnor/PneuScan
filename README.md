@@ -16,13 +16,15 @@ PneuScan/
 │   ├── app.py
 │   ├── requirements.txt
 │   ├── move_model.py
+│   ├── best_pneumonia_model.h5   # Trained MobileNetV2 model (NEW)
 │   ├── templates/
 │   └── static/
 ├── frontend/           # React frontend
 │   ├── package.json
 │   ├── public/
 │   └── src/
-├── Pneumonia_Detection_using_CNN.ipynb  # Model notebook
+├── Pneumonia_Detection_using_CNN.ipynb  # (Legacy) Model notebook
+├── Pneumonia_Detection_mobilenetv2.ipynb  # MobileNetV2 notebook (NEW)
 ├── .gitignore
 └── README.md
 ```
@@ -40,7 +42,7 @@ PneuScan/
    ```sh
    python app.py
    ```
-   The backend will run at [http://127.0.0.1:5000](http://127.0.0.1:5000)
+   The backend will run at [https://pneuscan-1.onrender.com](https://pneuscan-1.onrender.com)
 
 ### 2. Frontend (React)
 1. Go to the `frontend` folder:
@@ -49,11 +51,30 @@ PneuScan/
    npm install
    npm start
    ```
-2. The app will open at [http://localhost:3000](http://localhost:3000)
+2. The app will open at [https://pneu-scan-two.vercel.app/](https://pneu-scan-two.vercel.app/)
 
 ### 3. Model Notebook
 - The notebook `Pneumonia_Detection_using_CNN.ipynb` contains the model training and evaluation code. You can run it in Jupyter or VS Code.
 - **Note:** The raw dataset and large model files are not included in this repo. Please download them separately if needed.
+
+## MobileNetV2 Lightweight Model (NEW)
+
+This project now uses a lightweight MobileNetV2-based model for pneumonia detection, making it suitable for cloud deployment and fast inference.
+
+- **Notebook:** `Pneumonia_Detection_mobilenetv2.ipynb` contains the full workflow for training, evaluating, and saving the MobileNetV2 model.
+- **Model File:** The trained model is saved as `best_pneumonia_model.h5` and used by the backend for predictions.
+- **Advantages:**
+  - Much smaller and faster than a custom CNN
+  - Pretrained on ImageNet, then fine-tuned on the pneumonia dataset
+  - Lower memory usage, ideal for free-tier cloud services
+
+### How to Use the MobileNetV2 Model
+1. Open and run the notebook `Pneumonia_Detection_mobilenetv2.ipynb` to train or retrain the model.
+2. After training, ensure `best_pneumonia_model.h5` is present in the `deploy_app` folder.
+3. The backend will automatically use this model for predictions.
+
+### Evaluation
+- The notebook includes code to evaluate the model on validation data and print accuracy, precision, recall, F1 score, and confusion matrix.
 
 ## Usage
 - Open the web app in your browser.
